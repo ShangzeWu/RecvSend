@@ -6,18 +6,26 @@
 
 注意,文件名称不可包含中文以及特殊符号
 
-必须先提交C表
+必须提交完ABCD表再进行操作
+
+<form action="upload_file_A.php" method="post" enctype="multipart/form-data">
+<input type="file" name="file" id="file" />
+<input type="submit" name="提交A表格" value="提交A表格" />
+</form>
+   
+<form action="upload_file_B.php" method="post" enctype="multipart/form-data">
+<input type="file" name="file" id="file" />
+<input type="submit" name="提交B表格" value="提交B表格" />
+</form>
 
 <form action="upload_file_C.php" method="post" enctype="multipart/form-data">
 <input type="file" name="file" id="file" />
 <input type="submit" name="提交C表格" value="提交C表格" />
 </form>
-
-注意，必须先提交C表！！！！否则数据可能不正确
-
-<form action="upload_file_ABD.php" method="post" enctype="multipart/form-data">
+   
+<form action="upload_file_D.php" method="post" enctype="multipart/form-data">
 <input type="file" name="file" id="file" />
-<input type="submit" name="提交ABD输入表" value="提交ABD输入表" />
+<input type="submit" name="提交D表格" value="提交D表格" />
 </form>
 
 </body>
