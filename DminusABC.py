@@ -107,7 +107,7 @@ for x in range(2,Allrow4+1):
         sendpoint = str(sendpoint)
         if sendpoint != '江苏省市场部五十七部':# or sendpoint != '江苏盐城宝龙公司' or sendpoint != '江苏盐城公司' or sendpoint != '江苏盐城龙冈公司' or sendpoint != '江苏盐城亭湖公司' or sendpoint != '江苏盐城万达公司' or sendpoint != '江苏盐城吾悦公司' or sendpoint != '江苏盐城盐都公司' or sendpoint != '江苏盐城盐南高新公司' or sendpoint != '江苏盐城招商公司':
             ws4.delete_rows(x)
-#            x-=1
+            x-=1
     
 Allrow4 = ws4.max_row
 print(Allrow4)
