@@ -58,7 +58,7 @@ Allrow2 = ws2.max_row
 Allcol2 = ws2.max_column
 Allrow3 = ws3.max_row
 Allcol3 = ws3.max_column
-#Allrow2 = ws2.max_row
+Allrow4 = ws4.max_row
 #Allcol2 = ws2.max_column
 list_number = ['9999999999999']
 
@@ -94,7 +94,12 @@ wb3.save(dir_C+file_name_C)
 
 #print(list_name)
 print(len(list_number))
-for x in range(2,len(list_number)):
+for x in range(2,Allrow4+1):
+    sendpoint = ws4.cell(x,11).value
+    sendpoint = str(sendpoint)
+    if sendpoint 
+    
+    
 #去重
 index_rm_row = 2
 All_rm_row = ws1.max_row
