@@ -22,9 +22,9 @@ def find_new_file(dir):
 path =  "/var/www/html/RecvSend/"
 #print(path)
 dir_A = path+'/uploadA/' #用来读取A文件 的 路径
-dir_B = path+'/uploadB/' #用来读取A文件 的 路径
-dir_C = path+'/uploadC/' #用来读取A文件 的 路径
-dir_D = path+'/uploadD/' #用来读取A文件 的 路径
+dir_B = path+'/uploadB/' #用来读取B文件 的 路径
+dir_C = path+'/uploadC/' #用来读取C文件 的 路径
+dir_D = path+'/uploadD/' #用来读取D文件 的 路径
 
 #dir_namelist = path+'/namelist/' #用来读取人员名单表 的 路径
 #dir_template = path+'/template/template.xlsx' #用来读取输出模版表格 的 路径
@@ -37,7 +37,6 @@ file_name_D = find_new_file(dir_D)
 
 #file_name_list = find_new_file(dir_namelist)
 
-
 #业务逻辑
 wb1 = load_workbook(dir_A+file_name_A) #A表
 ws1 = wb1[wb1.sheetnames[0]]           #A表第一页
@@ -45,25 +44,48 @@ wb2 = load_workbook(dir_B+file_name_B) #B表
 ws2 = wb2[wb2.sheetnames[0]]           #B表第一页
 wb3 = load_workbook(dir_C+file_name_C) #C表
 ws3 = wb3[wb3.sheetnames[0]]           #C表第一页
-wb4 = load_workbook(dir_D+file_name_D) #A表
-ws4 = wb4[wb4.sheetnames[0]]           #A表第一页
+wb4 = load_workbook(dir_D+file_name_D) #D表
+ws4 = wb4[wb4.sheetnames[0]]           #D表第一页
 
 # wb2 = load_workbook(dir_namelist+file_name_list)      #namelist表
 # ws2 = wb2[wb2.sheetnames[0]]           #namelist表第一页
 # wb3 = load_workbook(dir_template)      #模板表
 
 #读取名单表，写入数组
+Allrow1 = ws1.max_row
+Allcol1 = ws1.max_column
 Allrow2 = ws2.max_row
 Allcol2 = ws2.max_column
-list_name = ['namelist']
-for n in range(2, Allrow2+1):
-    value_name = ws2.cell(n,1).value
-    if value_name == None:
+Allrow3 = ws3.max_row
+Allcol3 = ws3.max_column
+#Allrow2 = ws2.max_row
+#Allcol2 = ws2.max_column
+list_number = ['9999999999999']
+
+for n in range(2, Allrow1+1):   #读取A表的单号序列
+    value_number = ws1.cell(n,1).value
+    if value_number == None:
         continue
     else:
-        value_name = str(value_name)
-        list_name.append(value_name)
+        value_number = str(value_number)
+        list_number.append(value_number)
         
+for m in range(2, Allrow2+1):   #读取B表的单号序列
+    value_number = ws2.cell(m,1).value
+    if value_number == None:
+        continue
+    else:
+        value_number = str(value_number)
+        list_number.append(value_number)
+        
+for o in range(2, Allrow3+1):    #读取C表的单号序列
+    value_number = ws3.cell(o,1).value
+    if value_number == None:
+        continue
+    else:
+        value_number = str(value_number)
+        list_number.append(value_number)
+
 
 #print(list_name)
 print(len(list_name))
