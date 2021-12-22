@@ -22,19 +22,19 @@ if (($extension == "xlsx")
 
         // 判断当前目录下的 upload 目录是否存在该文件
         // 如果没有 upload 目录，你需要创建它，upload 目录权限为 777
-        if (file_exists("uploadC/" . $_FILES["file"]["name"]))
+        if (file_exists("uploadA/" . $_FILES["file"]["name"]))
         {
             echo $_FILES["file"]["name"] . " 文件已经存在。 ";
         }
         else
         {
             // 如果 upload 目录不存在该文件则将文件上传到 upload 目录下
-            move_uploaded_file($_FILES["file"]["tmp_name"], "/var/www/html/QualityCtrl/No2FileTool/uploadC/" . $_FILES["file"]["name"]);
-            echo "文件存储在: " . "uploadC/" . $_FILES["file"]["name"];
+            move_uploaded_file($_FILES["file"]["tmp_name"], "/var/www/html/RecvSend/uploadA/" . $_FILES["file"]["name"]);
+            echo "文件存储在: " . "uploadA/" . $_FILES["file"]["name"];
         }
     }
 
-header("Location: http://47.114.178.105/QualityCtrl/No2FileTool/preForC.php");
+//header("Location: http://47.114.178.105/QualityCtrl/No2FileTool/preForC.php");
 }
 else
 {
