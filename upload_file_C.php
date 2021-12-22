@@ -29,12 +29,12 @@ if (($extension == "xlsx")
         else
         {
             // 如果 upload 目录不存在该文件则将文件上传到 upload 目录下
-            move_uploaded_file($_FILES["file"]["tmp_name"], "/var/www/html/QualityCtrl/No2FileTool/uploadC/" . $_FILES["file"]["name"]);
+            move_uploaded_file($_FILES["file"]["tmp_name"], "/var/www/html/RecvSend/uploadC/" . $_FILES["file"]["name"]);
             echo "文件存储在: " . "uploadC/" . $_FILES["file"]["name"];
         }
     }
 
-header("Location: http://47.114.178.105/QualityCtrl/No2FileTool/preForC.php");
+//header("Location: http://47.114.178.105/QualityCtrl/No2FileTool/preForC.php");
 }
 else
 {
