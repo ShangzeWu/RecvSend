@@ -106,7 +106,7 @@ for x in range(2,Allrow4+1):
     else:
         sendpoint = ws4.cell(x,11).value
         sendpoint = str(sendpoint)
-        if sendpoint != '江苏省市场部五十七部' or sendpoint != '江苏盐城公司': # or sendpoint != '江苏盐城宝龙公司' or sendpoint != '江苏盐城龙冈公司' or sendpoint != '江苏盐城亭湖公司' or sendpoint != '江苏盐城万达公司' or sendpoint != '江苏盐城吾悦公司' or sendpoint != '江苏盐城盐都公司' or sendpoint != '江苏盐城盐南高新公司' or sendpoint != '江苏盐城招商公司':
+        if sendpoint != '江苏省市场部五十七部' and sendpoint != '江苏盐城公司': # or sendpoint != '江苏盐城宝龙公司' or sendpoint != '江苏盐城龙冈公司' or sendpoint != '江苏盐城亭湖公司' or sendpoint != '江苏盐城万达公司' or sendpoint != '江苏盐城吾悦公司' or sendpoint != '江苏盐城盐都公司' or sendpoint != '江苏盐城盐南高新公司' or sendpoint != '江苏盐城招商公司':
             ws4.cell(row=x,column=1,value="")  #清空单号
             #print(sendpoint)
             #print(x)
