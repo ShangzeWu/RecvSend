@@ -116,8 +116,8 @@ for x in range(2,Allrow4+1):
     
 Allrow4 = ws4.max_row
 print(Allrow4)
+
 #删除D表中ABC的重复项
-'''
 for y in range(2,Allrow4+1):
     if ws4.cell(y,1).value == None:
         continue
@@ -126,10 +126,8 @@ for y in range(2,Allrow4+1):
         value_numberD = str(value_numberD)
         for str1 in list_number:
             if str1 == value_numberD:
-                ws4.delete_rows(y)
-                y-=1
+                ws4.cell(row=y,column=1,value="")  #清空单号
                 break
-'''
 #合并三个表
 '''Allrow1 = ws1.max_row
 Allcol1 = ws1.max_column
