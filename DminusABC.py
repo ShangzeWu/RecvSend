@@ -106,7 +106,7 @@ Allrow4 = ws4.max_row
 
 #删除D表中ABC的重复项
 
-for y in range(2,Allrow+4):
+for y in range(2,Allrow4+1):
     if ws4.cell(y,1).value == None:
         continue
     else:
