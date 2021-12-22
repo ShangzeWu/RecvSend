@@ -102,7 +102,7 @@ for x in range(2,Allrow4+1):
     if ws4.cell(x,11).value == None:
         ws4.delete_rows(x)
         #print(x)
-        x-=1
+        #x-=1
     else:
         sendpoint = ws4.cell(x,11).value
         sendpoint = str(sendpoint)
@@ -110,7 +110,7 @@ for x in range(2,Allrow4+1):
             ws4.delete_rows(x)
             print(sendpoint)
             print(x)
-            x-=1
+            #x-=1
             #print(x)
             print(" *********** ")
     
