@@ -2,12 +2,12 @@
 from openpyxl import *
 import os
 import time
-//from datetime import datetime, timedelta
+from datetime import datetime, timedelta
 
-//format_pattern = '%Y-%m-%d %H:%M:%S'
-//cur_time = datetime.now()
+#format_pattern = '%Y-%m-%d %H:%M:%S'
+#cur_time = datetime.now()
 # 将 'cur_time' 类型时间通过格式化模式转换为 'str' 时间
-//cur_time = cur_time.strftime(format_pattern)
+#cur_time = cur_time.strftime(format_pattern)
 
 def find_new_file(dir):
     '''查找目录下最新的文件'''
@@ -21,21 +21,36 @@ def find_new_file(dir):
 
 path =  "/var/www/html/RecvSend/"
 #print(path)
-dir_C = path+'/uploadC/' #用来读取C文件 的 路径
-dir_namelist = path+'/namelist/' #用来读取人员名单表 的 路径
-#dir_template = path+'/template/template.xlsx' #用来读取输出模版表格 的 路径
-dir_save_C= "/var/www/html/QualityCtrl/No2FileTool/"  #输出 C文件 的保存路径
+dir_A = path+'/uploadA/' #用来读取A文件 的 路径
+dir_B = path+'/uploadB/' #用来读取A文件 的 路径
+dir_C = path+'/uploadC/' #用来读取A文件 的 路径
+dir_D = path+'/uploadD/' #用来读取A文件 的 路径
 
+#dir_namelist = path+'/namelist/' #用来读取人员名单表 的 路径
+#dir_template = path+'/template/template.xlsx' #用来读取输出模版表格 的 路径
+dir_save_D= "/var/www/html/RecvSend/resultD/"  #输出 D文件 的保存路径
+
+file_name_A = find_new_file(dir_A)
+file_name_B = find_new_file(dir_B)
 file_name_C = find_new_file(dir_C)
-file_name_list = find_new_file(dir_namelist)
+file_name_D = find_new_file(dir_D)
+
+#file_name_list = find_new_file(dir_namelist)
 
 
 #业务逻辑
-wb1 = load_workbook(dir_C+file_name_C) #C表
-ws1 = wb1[wb1.sheetnames[0]]           #C表第一页
-wb2 = load_workbook(dir_namelist+file_name_list)      #namelist表
-ws2 = wb2[wb2.sheetnames[0]]           #namelist表第一页
-#wb3 = load_workbook(dir_template)      #模板表
+wb1 = load_workbook(dir_A+file_name_A) #A表
+ws1 = wb1[wb1.sheetnames[0]]           #A表第一页
+wb2 = load_workbook(dir_B+file_name_B) #B表
+ws2 = wb2[wb2.sheetnames[0]]           #B表第一页
+wb3 = load_workbook(dir_C+file_name_C) #C表
+ws3 = wb3[wb3.sheetnames[0]]           #C表第一页
+wb4 = load_workbook(dir_D+file_name_D) #A表
+ws4 = wb4[wb4.sheetnames[0]]           #A表第一页
+
+# wb2 = load_workbook(dir_namelist+file_name_list)      #namelist表
+# ws2 = wb2[wb2.sheetnames[0]]           #namelist表第一页
+# wb3 = load_workbook(dir_template)      #模板表
 
 #读取名单表，写入数组
 Allrow2 = ws2.max_row
