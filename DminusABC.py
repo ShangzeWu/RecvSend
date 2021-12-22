@@ -4,10 +4,10 @@ import os
 import time
 from datetime import datetime, timedelta
 
-#format_pattern = '%Y-%m-%d %H:%M:%S'
-#cur_time = datetime.now()
+format_pattern = '%Y-%m-%d %H:%M:%S'
+cur_time = datetime.now()
 # 将 'cur_time' 类型时间通过格式化模式转换为 'str' 时间
-#cur_time = cur_time.strftime(format_pattern)
+cur_time = cur_time.strftime(format_pattern)
 
 def find_new_file(dir):
     '''查找目录下最新的文件'''
@@ -101,39 +101,23 @@ for x in range(2,Allrow4+1):
     if sendpoint != '江苏省市场部五十七部' or sendpoint != '江苏盐城宝龙公司' or sendpoint != '江苏盐城公司' or sendpoint != '江苏盐城龙冈公司' or sendpoint != '江苏盐城亭湖公司' or sendpoint != '江苏盐城万达公司' or sendpoint != '江苏盐城吾悦公司' or sendpoint != '江苏盐城盐都公司' or sendpoint != '江苏盐城盐南高新公司' or sendpoint != '江苏盐城招商公司':
         ws4.delete_rows(x)
     
-    
-#去重
-index_rm_row = 2
-All_rm_row = ws1.max_row
-while index_rm_row<=All_rm_row:
-    name_runner=ws1.cell(index_rm_row,6).value  #读取派件员的名字
-    if name_runner == None: #读到了空行
-        index_rm_row+=1
+Allrow4 = ws4.max_row
+
+#删除D表中ABC的重复项
+
+for y in range(2,Allrow+4):
+    if ws4.cell(y,1).value == None:
         continue
-    else:  # ！空行
-        name_runner=str(name_runner)
-        index_rm_row_inner = index_rm_row+1
-        while index_rm_row_inner <= All_rm_row:
-            value_inter1 = int(ws1.cell(index_rm_row,10).value) #存储已签收
-            value_inter2 = int(ws1.cell(index_rm_row,12).value) #存储已派未签
-            name_runner_inner = ws1.cell(index_rm_row_inner,6).value
-            if name_runner_inner ==None:
-                index_rm_row_inner+=1
-                continue
-            else:
-                name_runner_inner = str(name_runner_inner)
-                if name_runner_inner == name_runner:
-                    value_inter1 = value_inter1+int(ws1.cell(index_rm_row_inner,10).value)
-                    value_inter2 = value_inter2+int(ws1.cell(index_rm_row_inner,12).value)
-                    ws1.cell(row=index_rm_row,column=10,value=value_inter1)
-                    ws1.cell(row=index_rm_row,column=12,value=value_inter2)
-                    ws1.delete_rows(index_rm_row_inner,1)
-                    index_rm_row_inner= index_rm_row_inner-1
-                index_rm_row_inner+=1
-        index_rm_row+=1
+    else:
+        value_numberD = ws4.cell(y,1).value
+        value_numberD = str(value_numberD)
+        for str1 in list_number:
+            if str1 == value_numberD:
+                ws4.delete_rows(y)
+                break
 
 #合并三个表
-Allrow1 = ws1.max_row
+'''Allrow1 = ws1.max_row
 Allcol1 = ws1.max_column
 
 #print(Allrow1)
@@ -156,5 +140,6 @@ while index_C_col<=Allcol1:
                         ws1.cell(row = index_C_row, column = index_C_col, value ='')
                         index_C_row+=1
         index_C_col=index_C_col+1
-wb1.save(dir_save_C+"tempC/ChangedC"+cur_time+'.xlsx')
-wb2.save(dir_namelist+file_name_list)
+'''
+wb4.save(dir_save_D+cur_time+'.xlsx')
+#wb2.save(dir_namelist+file_name_list)
