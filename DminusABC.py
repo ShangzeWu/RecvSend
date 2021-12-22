@@ -69,8 +69,8 @@ for n in range(2, Allrow1+1):   #读取A表的单号序列,存入列表
     else:
         value_number = str(value_number)
         list_number.append(value_number)
-        
-wb1.save(dir_A+file_name_A)
+wb1.close()        
+#wb1.save(dir_A+file_name_A)
 
 for m in range(2, Allrow2+1):   #读取B表的单号序列
     value_number = ws2.cell(m,1).value
@@ -79,8 +79,9 @@ for m in range(2, Allrow2+1):   #读取B表的单号序列
     else:
         value_number = str(value_number)
         list_number.append(value_number)
-        
-wb2.save(dir_B+file_name_B)
+
+wb2.close() 
+#wb2.save(dir_B+file_name_B)
         
 for o in range(2, Allrow3+1):    #读取C表的单号序列
     value_number = ws3.cell(o,1).value
@@ -89,8 +90,8 @@ for o in range(2, Allrow3+1):    #读取C表的单号序列
     else:
         value_number = str(value_number)
         list_number.append(value_number)
-        
-wb3.save(dir_C+file_name_C)
+wb3.close()         
+#wb3.save(dir_C+file_name_C)
 
 #print(list_name)
 print(len(list_number))
