@@ -59,6 +59,7 @@ Allcol2 = ws2.max_column
 Allrow3 = ws3.max_row
 Allcol3 = ws3.max_column
 Allrow4 = ws4.max_row
+print(Allrow4)
 #Allcol2 = ws2.max_column
 list_number = ['9999999999999']
 
@@ -109,7 +110,7 @@ for x in range(2,Allrow4+1):
             x-=1
     
 Allrow4 = ws4.max_row
-
+print(Allrow4)
 #删除D表中ABC的重复项
 
 for y in range(2,Allrow4+1):
