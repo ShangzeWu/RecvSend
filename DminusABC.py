@@ -101,6 +101,7 @@ print(list_number)
 for x in range(2,Allrow4+1):
     if ws4.cell(x,11).value == None:
         #ws4.delete_rows(x)
+        print(x)
         #x-=1
     else:
         sendpoint = ws4.cell(x,11).value
