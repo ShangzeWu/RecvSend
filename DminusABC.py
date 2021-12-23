@@ -99,7 +99,7 @@ for num1 in list_number:
     df = df.drop(df[ df['运单编号'] == num1 ].index)
 
 #df = df.drop(df[ df['运单编号'] == 777069457504657].index)
-writer = pd.ExcelWriter(dir_D+file_name_D)
+writer = pd.ExcelWriter(path+'/resultD/'+file_name_D)
 #df为需要保存的DataFrame
 df.to_excel(writer,index = False ,encoding='utf-8',sheet_name='Sheet1')
 writer.save()
