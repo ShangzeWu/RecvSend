@@ -41,12 +41,12 @@ file_name_A = find_new_file(dir_A)
 file_name_B = find_new_file(dir_B)
 file_name_C = find_new_file(dir_C)
 file_name_D = find_new_file(dir_D)
-
+'''
 #业务逻辑
 wb4 = load_workbook(dir_D+file_name_D) #D表
 ws4 = wb4[wb4.sheetnames[0]]           #D表第一页
 Allrow4 = ws4.max_row
-'''
+
 #删除D表中的进港件记录
 for x in range(2,Allrow4+1):
     if ws4.cell(x,11).value == None:
