@@ -20,13 +20,14 @@ def find_new_file(dir):
     file = os.path.join(dir, file_lists[-1])
 #    print('完整路径：', file)
     return file_lists[-1]   #返回文件的名字，不包含路径
-
+'''
 def setNull(ws,n):
     cols_num = ws.max_column
     #print(cols_num)
     #print(" *********** ")
     for x in range(1,cols_num+1):
         ws.cell(row=n,column=x,value="")  #清空一行数据
+'''
 
 path =  "/var/www/html/RecvSend/"
 #print(path)
@@ -43,23 +44,6 @@ file_name_C = find_new_file(dir_C)
 file_name_D = find_new_file(dir_D)
 
 #业务逻辑
-
-#使用pandas剔除空行
-df = pd.read_excel(dir_D+file_name_D)
-#print(df['寄件网点'])
-#print((df['寄件网点']!='江苏省市场部五十七部') & (df['寄件网点']!='江苏盐城公司'))
-df = df.drop(df[(df['寄件网点']!='江苏省市场部五十七部') & (df['寄件网点']!='江苏盐城公司') & (df['寄件网点']!='江苏盐城宝龙公司') & (df['寄件网点']!='江苏盐城龙冈公司') & (df['寄件网点']!='江苏盐城亭湖公司') & (df['寄件网点']!='江苏盐城万达公司') & (df['寄件网点']!='江苏盐城吾悦公司') & (df['寄件网点']!='江苏盐城盐都公司') & (df['寄件网点']!='江苏盐城盐南高新公司') & (df['寄件网点']!='江苏盐城招商公司')  ].index)
-
-df = df.dropna(axis=0, how='all', thresh=None, subset=None, inplace=False)
-writer = pd.ExcelWriter(dir_D+file_name_D)
-#columns参数的顺序就是excel的列顺序
-#df为需要保存的DataFrame
-df.to_excel(writer,index = False ,encoding='utf-8',sheet_name='Sheet1')
-#生成csv文件
-#df.to_csv(r'./1.csv',columns=['save1','save2'],index=False,sep=',')
-writer.save()
-
-
 #加载ABC表的第一列
 wb1 = load_workbook(dir_A+file_name_A) #A表
 ws1 = wb1[wb1.sheetnames[0]]           #A表第一页
@@ -69,11 +53,9 @@ wb3 = load_workbook(dir_C+file_name_C) #C表
 ws3 = wb3[wb3.sheetnames[0]]           #C表第一页
 
 Allrow1 = ws1.max_row
-Allcol1 = ws1.max_column
+#Allcol1 = ws1.max_column
 Allrow2 = ws2.max_row
-Allcol2 = ws2.max_column
 Allrow3 = ws3.max_row
-Allcol3 = ws3.max_column
 
 list_number = ['9999999999999']
 
@@ -106,7 +88,24 @@ for o in range(2, Allrow3+1):    #读取C表的单号序列
         value_number = str(value_number)
         list_number.append(value_number)
 wb3.close() 
+#使用pandas剔除杂项
+df = pd.read_excel(dir_D+file_name_D)
+#print(df['寄件网点'])
+#print((df['寄件网点']!='江苏省市场部五十七部') & (df['寄件网点']!='江苏盐城公司'))
+#删除其他网点
+df = df.drop(df[(df['寄件网点']!='江苏省市场部五十七部') & (df['寄件网点']!='江苏盐城公司') & (df['寄件网点']!='江苏盐城宝龙公司') & (df['寄件网点']!='江苏盐城龙冈公司') & (df['寄件网点']!='江苏盐城亭湖公司') & (df['寄件网点']!='江苏盐城万达公司') & (df['寄件网点']!='江苏盐城吾悦公司') & (df['寄件网点']!='江苏盐城盐都公司') & (df['寄件网点']!='江苏盐城盐南高新公司') & (df['寄件网点']!='江苏盐城招商公司')  ].index)
+#删除空行
+df = df.dropna(axis=0, how='all', thresh=None, subset=None, inplace=False)
+
+writer = pd.ExcelWriter(dir_D+file_name_D)
+#df为需要保存的DataFrame
+df.to_excel(writer,index = False ,encoding='utf-8',sheet_name='Sheet1')
+writer.save()
+
+
+
 #删除D表中ABC的重复项
+'''
 for y in range(2,Allrow4+1):
     if ws4.cell(y,1).value == None:
         continue
@@ -120,4 +119,5 @@ for y in range(2,Allrow4+1):
                 break
                 
 wb4.save(dir_save_D+cur_time+'.xlsx')
+'''
 #wb2.save(dir_namelist+file_name_list)
