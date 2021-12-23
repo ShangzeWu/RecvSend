@@ -4,6 +4,7 @@ import os
 import time
 from datetime import datetime, timedelta
 import pandas as pd
+import xlrd
 
 format_pattern = '%Y-%m-%d %H:%M:%S'
 cur_time = datetime.now()
