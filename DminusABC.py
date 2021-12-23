@@ -136,30 +136,6 @@ for y in range(2,Allrow4+1):
                 setNull(ws4,y) #清除整行内容
                 #ws4.cell(row=y,column=1,value="")  #清空单号
                 break
-#合并三个表
-'''Allrow1 = ws1.max_row
-Allcol1 = ws1.max_column
-
-#print(Allrow1)
-index_C_col=1
-while index_C_col<=Allcol1:
-        if ws1.cell(1,index_C_col).value=="派件员":
-            index_C_row = 2
-            while index_C_row<=Allrow1:
-                name_C = ws1.cell(index_C_row,index_C_col).value
-                flag = True
-                if name_C == None:  #排除C表的空行
-                    index_C_row += 1
-                    continue
-                else:
-                    name_C = str(name_C)
-                    if name_C in list_name:
-                        index_C_row += 1
-                        continue
-                    else:
-                        ws1.cell(row = index_C_row, column = index_C_col, value ='')
-                        index_C_row+=1
-        index_C_col=index_C_col+1
-'''
+                
 wb4.save(dir_save_D+cur_time+'.xlsx')
 #wb2.save(dir_namelist+file_name_list)
