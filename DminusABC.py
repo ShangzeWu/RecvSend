@@ -10,7 +10,7 @@ format_pattern = '%Y-%m-%d %H:%M:%S'
 cur_time = datetime.now()
 # 将 'cur_time' 类型时间通过格式化模式转换为 'str' 时间
 cur_time = cur_time.strftime(format_pattern)
-
+'''
 def find_new_file(dir):
     '''查找目录下最新的文件'''
     file_lists = os.listdir(dir)
@@ -58,9 +58,11 @@ for x in range(2,Allrow4+1):
             setNull(ws4,x)  #清空整行内容
 
 wb4.save(dir_D+file_name_D)
-
+'''
 #使用pandas剔除空行
 df = pd.read_excel(dir_D+file_name_D)
+df.drop(df[df.寄件网点!='江苏省市场部五十七部'].index)
+
 df = df.dropna(axis=0, how='all', thresh=None, subset=None, inplace=False)
 writer = pd.ExcelWriter(dir_D+file_name_D)
 #columns参数的顺序就是excel的列顺序
