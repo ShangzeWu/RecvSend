@@ -41,24 +41,9 @@ file_name_A = find_new_file(dir_A)
 file_name_B = find_new_file(dir_B)
 file_name_C = find_new_file(dir_C)
 file_name_D = find_new_file(dir_D)
-'''
+
 #业务逻辑
-wb4 = load_workbook(dir_D+file_name_D) #D表
-ws4 = wb4[wb4.sheetnames[0]]           #D表第一页
-Allrow4 = ws4.max_row
 
-#删除D表中的进港件记录
-for x in range(2,Allrow4+1):
-    if ws4.cell(x,11).value == None:
-        setNull(ws4,x)  #清空整行内容
-    else:
-        sendpoint = ws4.cell(x,11).value
-        sendpoint = str(sendpoint)
-        if sendpoint != '江苏省市场部五十七部' and sendpoint != '江苏盐城公司' and sendpoint != '江苏盐城宝龙公司' and sendpoint != '江苏盐城龙冈公司' and sendpoint != '江苏盐城亭湖公司' and sendpoint != '江苏盐城万达公司' and sendpoint != '江苏盐城吾悦公司' and sendpoint != '江苏盐城盐都公司' and sendpoint != '江苏盐城盐南高新公司' and sendpoint != '江苏盐城招商公司':
-            setNull(ws4,x)  #清空整行内容
-
-wb4.save(dir_D+file_name_D)
-'''
 #使用pandas剔除空行
 df = pd.read_excel(dir_D+file_name_D)
 #print(df['寄件网点'])
@@ -74,7 +59,7 @@ df.to_excel(writer,index = False ,encoding='utf-8',sheet_name='Sheet1')
 #df.to_csv(r'./1.csv',columns=['save1','save2'],index=False,sep=',')
 writer.save()
 
-'''
+
 #加载ABC表的第一列
 wb1 = load_workbook(dir_A+file_name_A) #A表
 ws1 = wb1[wb1.sheetnames[0]]           #A表第一页
@@ -82,8 +67,6 @@ wb2 = load_workbook(dir_B+file_name_B) #B表
 ws2 = wb2[wb2.sheetnames[0]]           #B表第一页
 wb3 = load_workbook(dir_C+file_name_C) #C表
 ws3 = wb3[wb3.sheetnames[0]]           #C表第一页
-wb4 = load_workbook(dir_D+file_name_D) #D表
-ws4 = wb4[wb4.sheetnames[0]]           #D表第一页
 
 Allrow1 = ws1.max_row
 Allcol1 = ws1.max_column
@@ -91,7 +74,6 @@ Allrow2 = ws2.max_row
 Allcol2 = ws2.max_column
 Allrow3 = ws3.max_row
 Allcol3 = ws3.max_column
-Allrow4 = ws4.max_row
 
 list_number = ['9999999999999']
 
@@ -138,5 +120,4 @@ for y in range(2,Allrow4+1):
                 break
                 
 wb4.save(dir_save_D+cur_time+'.xlsx')
-'''
 #wb2.save(dir_namelist+file_name_list)
