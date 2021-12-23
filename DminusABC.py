@@ -19,6 +19,11 @@ def find_new_file(dir):
 #    print('完整路径：', file)
     return file_lists[-1]   #返回文件的名字，不包含路径
 
+def setNull(ws,n):
+    cols_num = ws.max_column
+    for x in range(1,cols_num):
+        ws.cell(row=n,column=x,value="")  #清空一行数据
+
 path =  "/var/www/html/RecvSend/"
 #print(path)
 dir_A = path+'/uploadA/' #用来读取A文件 的 路径
@@ -100,14 +105,14 @@ print(list_number)
 #删除D表中的进港件记录
 for x in range(2,Allrow4+1):
     if ws4.cell(x,11).value == None:
-        ws4.cell(row=x,column=1,value="")  #清空单号
+        setNull(ws4,x)  #清空整行内容
         #print(x)
         #x-=1
     else:
         sendpoint = ws4.cell(x,11).value
         sendpoint = str(sendpoint)
         if sendpoint != '江苏省市场部五十七部' and sendpoint != '江苏盐城公司' and sendpoint != '江苏盐城宝龙公司' and sendpoint != '江苏盐城龙冈公司' and sendpoint != '江苏盐城亭湖公司' and sendpoint != '江苏盐城万达公司' and sendpoint != '江苏盐城吾悦公司' and sendpoint != '江苏盐城盐都公司' and sendpoint != '江苏盐城盐南高新公司' and sendpoint != '江苏盐城招商公司':
-            ws4.cell(row=x,column=1,value="")  #清空单号
+            setNull(ws4,x)  #清空整行内容
             #print(sendpoint)
             #print(x)
             #x-=1
@@ -126,7 +131,8 @@ for y in range(2,Allrow4+1):
         value_numberD = str(value_numberD)
         for str1 in list_number:
             if str1 == value_numberD:
-                ws4.cell(row=y,column=1,value="")  #清空单号
+                setNull(ws4,y) #清除整行内容
+                #ws4.cell(row=y,column=1,value="")  #清空单号
                 break
 #合并三个表
 '''Allrow1 = ws1.max_row
