@@ -21,9 +21,9 @@ def find_new_file(dir):
 
 def setNull(ws,n):
     cols_num = ws.max_column
-    print(cols_num)
-    print(" *********** ")
-    for x in range(1,cols_num):
+    #print(cols_num)
+    #print(" *********** ")
+    for x in range(1,cols_num+1):
         ws.cell(row=n,column=x,value="")  #清空一行数据
 
 path =  "/var/www/html/RecvSend/"
