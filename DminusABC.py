@@ -99,10 +99,11 @@ df = pd.read_excel(dir_D+file_name_D)
 #删除空行
 ###df = df.dropna(axis=0, how='all', thresh=None, subset=None, inplace=False)
 # print(df['运单编号'].dtype) #int64
-
+'''
 for num1 in list_number:
     df = df.drop(df[ num1 == df['运单编号'] ].index)
-
+'''
+df = df.drop(df[ df['运单编号'] == 777069457504657].index)
 writer = pd.ExcelWriter(dir_D+file_name_D)
 #df为需要保存的DataFrame
 df.to_excel(writer,index = False ,encoding='utf-8',sheet_name='Sheet1')
