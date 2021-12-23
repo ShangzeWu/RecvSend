@@ -3,6 +3,7 @@ from openpyxl import *
 import os
 import time
 from datetime import datetime, timedelta
+import pandas as pd
 
 format_pattern = '%Y-%m-%d %H:%M:%S'
 cur_time = datetime.now()
@@ -56,6 +57,16 @@ for x in range(2,Allrow4+1):
             setNull(ws4,x)  #清空整行内容
 
 wb4.save(dir_D+file_name_D)
+
+df = pd.read_excel(r'C:\Users\CHENRUI\Desktop\测试\清洗空值.xlsx')
+df = df.dropna(axis=0, how='all', thresh=None, subset=None, inplace=False)
+writer = pd.ExcelWriter('文件保存路径')
+#columns参数的顺序就是excel的列顺序
+#df为需要保存的DataFrame
+df.to_excel(writer, columns=['save1','save2'], index=False,encoding='utf-8',sheet_name='Sheet1')
+#生成csv文件
+#df.to_csv(r'./1.csv',columns=['save1','save2'],index=False,sep=',')
+writer.save()
 
 '''
 #加载ABC表的第一列
