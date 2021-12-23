@@ -34,7 +34,7 @@ if (($extension == "xlsx")
         }
     }
 
-//header("Location: http://47.114.178.105/QualityCtrl/No2FileTool/preForC.php");
+header("Location: http://47.114.178.105/RecvSend/action.php");
 }
 else
 {
