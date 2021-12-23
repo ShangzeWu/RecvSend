@@ -43,8 +43,6 @@ file_name_D = find_new_file(dir_D)
 #业务逻辑
 wb4 = load_workbook(dir_D+file_name_D) #D表
 ws4 = wb4[wb4.sheetnames[0]]           #D表第一页
-
-#读取名单表，写入数组
 Allrow4 = ws4.max_row
 
 #删除D表中的进港件记录
@@ -57,14 +55,18 @@ for x in range(2,Allrow4+1):
         if sendpoint != '江苏省市场部五十七部' and sendpoint != '江苏盐城公司' and sendpoint != '江苏盐城宝龙公司' and sendpoint != '江苏盐城龙冈公司' and sendpoint != '江苏盐城亭湖公司' and sendpoint != '江苏盐城万达公司' and sendpoint != '江苏盐城吾悦公司' and sendpoint != '江苏盐城盐都公司' and sendpoint != '江苏盐城盐南高新公司' and sendpoint != '江苏盐城招商公司':
             setNull(ws4,x)  #清空整行内容
 
+wb4.save(dir_D+file_name_D)
 
-#print(Allrow4)
+
+#加载ABC表的第一列
 wb1 = load_workbook(dir_A+file_name_A) #A表
 ws1 = wb1[wb1.sheetnames[0]]           #A表第一页
 wb2 = load_workbook(dir_B+file_name_B) #B表
 ws2 = wb2[wb2.sheetnames[0]]           #B表第一页
 wb3 = load_workbook(dir_C+file_name_C) #C表
 ws3 = wb3[wb3.sheetnames[0]]           #C表第一页
+wb4 = load_workbook(dir_D+file_name_D) #D表
+ws4 = wb4[wb4.sheetnames[0]]           #D表第一页
 
 Allrow1 = ws1.max_row
 Allcol1 = ws1.max_column
