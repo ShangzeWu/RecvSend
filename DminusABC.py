@@ -101,7 +101,9 @@ df = pd.read_excel(dir_D+file_name_D)
 # print(df['运单编号'].dtype) #int64
 
 for num1 in list_number:
-    df = df.drop(df[ num1 == df['运单编号'] ].index)
+    print(type(num1))
+    print(num1)
+    df = df.drop(df[ df['运单编号'] == num1 ].index)
 
 #df = df.drop(df[ df['运单编号'] == 777069457504657].index)
 writer = pd.ExcelWriter(dir_D+file_name_D)
