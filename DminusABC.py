@@ -12,7 +12,7 @@ cur_time = datetime.now()
 cur_time = cur_time.strftime(format_pattern)
 '''
 def find_new_file(dir):
-    '''查找目录下最新的文件'''
+    #查找目录下最新的文件
     file_lists = os.listdir(dir)
     file_lists.sort(key=lambda fn: os.path.getmtime(dir + "/" + fn)
     if not os.path.isdir(dir + "/" + fn) else 0)
