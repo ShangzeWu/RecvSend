@@ -64,7 +64,7 @@ df = df.dropna(axis=0, how='all', thresh=None, subset=None, inplace=False)
 writer = pd.ExcelWriter(dir_D+file_name_D)
 #columns参数的顺序就是excel的列顺序
 #df为需要保存的DataFrame
-df.to_excel(writer, columns=['save1','save2'], index=False,encoding='utf-8',sheet_name='Sheet1')
+df.to_excel(writer,index = False ,encoding='utf-8',sheet_name='Sheet1')
 #生成csv文件
 #df.to_csv(r'./1.csv',columns=['save1','save2'],index=False,sep=',')
 writer.save()
