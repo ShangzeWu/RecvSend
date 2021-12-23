@@ -58,7 +58,9 @@ Allrow2 = ws2.max_row
 Allrow3 = ws3.max_row
 
 list_number = ['9999999999999']
-
+print(type(ws1.cell(3,1).value))
+print(type(ws2.cell(3,1).value))
+print(type(ws3.cell(3,1).value))
 for n in range(2, Allrow1+1):   #读取A表的单号序列,存入列表
     value_number = ws1.cell(n,1).value
     if value_number == None:
@@ -93,14 +95,14 @@ df = pd.read_excel(dir_D+file_name_D)
 #print(df['寄件网点'])
 #print((df['寄件网点']!='江苏省市场部五十七部') & (df['寄件网点']!='江苏盐城公司'))
 #删除其他网点
-df = df.drop(df[(df['寄件网点']!='江苏省市场部五十七部') & (df['寄件网点']!='江苏盐城公司') & (df['寄件网点']!='江苏盐城宝龙公司') & (df['寄件网点']!='江苏盐城龙冈公司') & (df['寄件网点']!='江苏盐城亭湖公司') & (df['寄件网点']!='江苏盐城万达公司') & (df['寄件网点']!='江苏盐城吾悦公司') & (df['寄件网点']!='江苏盐城盐都公司') & (df['寄件网点']!='江苏盐城盐南高新公司') & (df['寄件网点']!='江苏盐城招商公司')  ].index)
+###df = df.drop(df[(df['寄件网点']!='江苏省市场部五十七部') & (df['寄件网点']!='江苏盐城公司') & (df['寄件网点']!='江苏盐城宝龙公司') & (df['寄件网点']!='江苏盐城龙冈公司') & (df['寄件网点']!='江苏盐城亭湖公司') & (df['寄件网点']!='江苏盐城万达公司') & (df['寄件网点']!='江苏盐城吾悦公司') & (df['寄件网点']!='江苏盐城盐都公司') & (df['寄件网点']!='江苏盐城盐南高新公司') & (df['寄件网点']!='江苏盐城招商公司')  ].index)
 #删除空行
-df = df.dropna(axis=0, how='all', thresh=None, subset=None, inplace=False)
+###df = df.dropna(axis=0, how='all', thresh=None, subset=None, inplace=False)
 # print(df['运单编号'].dtype) #int64
-
+'''
 for str1 in list_number:
     df = df.drop(df[ int(str1) == df['运单编号'] ].index)
-
+'''
 writer = pd.ExcelWriter(dir_D+file_name_D)
 #df为需要保存的DataFrame
 df.to_excel(writer,index = False ,encoding='utf-8',sheet_name='Sheet1')
