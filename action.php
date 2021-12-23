@@ -13,5 +13,5 @@ print_r($ret);
 #echo $return_var;
 
 
-header("Location: http://47.114.178.105/RecvSend/uploadD");
+header("Location: http://47.114.178.105/RecvSend/resultD");
 ?>
