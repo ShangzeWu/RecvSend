@@ -96,7 +96,10 @@ df = pd.read_excel(dir_D+file_name_D)
 df = df.drop(df[(df['寄件网点']!='江苏省市场部五十七部') & (df['寄件网点']!='江苏盐城公司') & (df['寄件网点']!='江苏盐城宝龙公司') & (df['寄件网点']!='江苏盐城龙冈公司') & (df['寄件网点']!='江苏盐城亭湖公司') & (df['寄件网点']!='江苏盐城万达公司') & (df['寄件网点']!='江苏盐城吾悦公司') & (df['寄件网点']!='江苏盐城盐都公司') & (df['寄件网点']!='江苏盐城盐南高新公司') & (df['寄件网点']!='江苏盐城招商公司')  ].index)
 #删除空行
 df = df.dropna(axis=0, how='all', thresh=None, subset=None, inplace=False)
-print(df['运单编号'].dtype)
+# print(df['运单编号'].dtype) #int64
+
+for str1 in list_number:
+    df = df.drop(df[ str1 == str(df['运单编号']) ].index)
 
 writer = pd.ExcelWriter(dir_D+file_name_D)
 #df为需要保存的DataFrame
