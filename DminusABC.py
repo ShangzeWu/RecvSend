@@ -10,7 +10,7 @@ format_pattern = '%Y-%m-%d %H:%M:%S'
 cur_time = datetime.now()
 # 将 'cur_time' 类型时间通过格式化模式转换为 'str' 时间
 cur_time = cur_time.strftime(format_pattern)
-'''
+
 def find_new_file(dir):
     #查找目录下最新的文件
     file_lists = os.listdir(dir)
@@ -46,7 +46,7 @@ file_name_D = find_new_file(dir_D)
 wb4 = load_workbook(dir_D+file_name_D) #D表
 ws4 = wb4[wb4.sheetnames[0]]           #D表第一页
 Allrow4 = ws4.max_row
-
+'''
 #删除D表中的进港件记录
 for x in range(2,Allrow4+1):
     if ws4.cell(x,11).value == None:
