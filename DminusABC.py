@@ -99,7 +99,7 @@ df = df.dropna(axis=0, how='all', thresh=None, subset=None, inplace=False)
 # print(df['运单编号'].dtype) #int64
 
 for str1 in list_number:
-    df = df.drop(df[ str1 == str(df['运单编号']) ].index)
+    df = df.drop(df[ int(str1) == df['运单编号'] ].index)
 
 writer = pd.ExcelWriter(dir_D+file_name_D)
 #df为需要保存的DataFrame
