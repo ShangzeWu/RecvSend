@@ -99,32 +99,14 @@ df = pd.read_excel(dir_D+file_name_D)
 #删除空行
 ###df = df.dropna(axis=0, how='all', thresh=None, subset=None, inplace=False)
 # print(df['运单编号'].dtype) #int64
-'''
+
 for num1 in list_number:
     df = df.drop(df[ num1 == df['运单编号'] ].index)
-'''
-df = df.drop(df[ df['运单编号'] == 777069457504657].index)
+
+#df = df.drop(df[ df['运单编号'] == 777069457504657].index)
 writer = pd.ExcelWriter(dir_D+file_name_D)
 #df为需要保存的DataFrame
 df.to_excel(writer,index = False ,encoding='utf-8',sheet_name='Sheet1')
 writer.save()
 
-
-
-#删除D表中ABC的重复项
-'''
-for y in range(2,Allrow4+1):
-    if ws4.cell(y,1).value == None:
-        continue
-    else:
-        value_numberD = ws4.cell(y,1).value
-        value_numberD = str(value_numberD)
-        for str1 in list_number:
-            if str1 == value_numberD:
-                setNull(ws4,y) #清除整行内容
-                #ws4.cell(row=y,column=1,value="")  #清空单号
-                break
-                
-wb4.save(dir_save_D+cur_time+'.xlsx')
-'''
 #wb2.save(dir_namelist+file_name_list)
