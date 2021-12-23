@@ -57,7 +57,7 @@ for x in range(2,Allrow4+1):
 
 wb4.save(dir_D+file_name_D)
 
-
+'''
 #加载ABC表的第一列
 wb1 = load_workbook(dir_A+file_name_A) #A表
 ws1 = wb1[wb1.sheetnames[0]]           #A表第一页
@@ -121,4 +121,5 @@ for y in range(2,Allrow4+1):
                 break
                 
 wb4.save(dir_save_D+cur_time+'.xlsx')
+'''
 #wb2.save(dir_namelist+file_name_list)
