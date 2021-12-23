@@ -20,14 +20,6 @@ def find_new_file(dir):
     file = os.path.join(dir, file_lists[-1])
 #    print('完整路径：', file)
     return file_lists[-1]   #返回文件的名字，不包含路径
-'''
-def setNull(ws,n):
-    cols_num = ws.max_column
-    #print(cols_num)
-    #print(" *********** ")
-    for x in range(1,cols_num+1):
-        ws.cell(row=n,column=x,value="")  #清空一行数据
-'''
 
 path =  "/var/www/html/RecvSend/"
 #print(path)
@@ -95,15 +87,15 @@ df = pd.read_excel(dir_D+file_name_D)
 #print(df['寄件网点'])
 #print((df['寄件网点']!='江苏省市场部五十七部') & (df['寄件网点']!='江苏盐城公司'))
 #删除其他网点
-###df = df.drop(df[(df['寄件网点']!='江苏省市场部五十七部') & (df['寄件网点']!='江苏盐城公司') & (df['寄件网点']!='江苏盐城宝龙公司') & (df['寄件网点']!='江苏盐城龙冈公司') & (df['寄件网点']!='江苏盐城亭湖公司') & (df['寄件网点']!='江苏盐城万达公司') & (df['寄件网点']!='江苏盐城吾悦公司') & (df['寄件网点']!='江苏盐城盐都公司') & (df['寄件网点']!='江苏盐城盐南高新公司') & (df['寄件网点']!='江苏盐城招商公司')  ].index)
+df = df.drop(df[(df['寄件网点']!='江苏省市场部五十七部') & (df['寄件网点']!='江苏盐城公司') & (df['寄件网点']!='江苏盐城宝龙公司') & (df['寄件网点']!='江苏盐城龙冈公司') & (df['寄件网点']!='江苏盐城亭湖公司') & (df['寄件网点']!='江苏盐城万达公司') & (df['寄件网点']!='江苏盐城吾悦公司') & (df['寄件网点']!='江苏盐城盐都公司') & (df['寄件网点']!='江苏盐城盐南高新公司') & (df['寄件网点']!='江苏盐城招商公司')  ].index)
 #删除空行
-###df = df.dropna(axis=0, how='all', thresh=None, subset=None, inplace=False)
+df = df.dropna(axis=0, how='all', thresh=None, subset=None, inplace=False)
 # print(df['运单编号'].dtype) #int64
 
 for num1 in list_number:
     num1 = int(num1)
-    print(type(num1))
-    print(df['运单编号'].dtype)
+    #print(type(num1))
+    #print(df['运单编号'].dtype)
     df = df.drop(df[ df['运单编号'] == num1 ].index)
 
 #df = df.drop(df[ df['运单编号'] == 777069457504657].index)
