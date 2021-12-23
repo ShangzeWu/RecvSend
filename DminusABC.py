@@ -21,6 +21,8 @@ def find_new_file(dir):
 
 def setNull(ws,n):
     cols_num = ws.max_column
+    print(cols_num)
+    print(" *********** ")
     for x in range(1,cols_num):
         ws.cell(row=n,column=x,value="")  #清空一行数据
 
@@ -64,7 +66,7 @@ Allcol2 = ws2.max_column
 Allrow3 = ws3.max_row
 Allcol3 = ws3.max_column
 Allrow4 = ws4.max_row
-print(Allrow4)
+#print(Allrow4)
 #Allcol2 = ws2.max_column
 list_number = ['9999999999999']
 
@@ -100,8 +102,8 @@ wb3.close()
 #wb3.save(dir_C+file_name_C)
 
 #print(list_name)
-print(len(list_number))
-print(list_number)
+#print(len(list_number))
+#print(list_number)
 #删除D表中的进港件记录
 for x in range(2,Allrow4+1):
     if ws4.cell(x,11).value == None:
@@ -120,7 +122,7 @@ for x in range(2,Allrow4+1):
             #print(" *********** ")
     
 Allrow4 = ws4.max_row
-print(Allrow4)
+#print(Allrow4)
 
 #删除D表中ABC的重复项
 for y in range(2,Allrow4+1):
