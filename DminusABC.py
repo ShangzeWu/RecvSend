@@ -62,7 +62,7 @@ wb4.save(dir_D+file_name_D)
 #使用pandas剔除空行
 df = pd.read_excel(dir_D+file_name_D)
 #print(df['寄件网点'])
-print(df['寄件网点']!='江苏省市场部五十七部')
+print(df['寄件网点']!='江苏省市场部五十七部' and df['寄件网点']!='江苏盐城公司')
 #df = df.drop(df[df['寄件网点']!='江苏省市场部五十七部'].index)
 
 df = df.dropna(axis=0, how='all', thresh=None, subset=None, inplace=False)
