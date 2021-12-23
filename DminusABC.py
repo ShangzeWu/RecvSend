@@ -57,16 +57,16 @@ Allrow1 = ws1.max_row
 Allrow2 = ws2.max_row
 Allrow3 = ws3.max_row
 
-list_number = ['9999999999999']
-print(type(ws1.cell(3,1).value))
-print(type(ws2.cell(3,1).value))
-print(type(ws3.cell(3,1).value))
+list_number = [0]
+#print(type(ws1.cell(3,1).value))  #int
+#print(type(ws2.cell(3,1).value))  #int
+#print(type(ws3.cell(3,1).value))  #int
 for n in range(2, Allrow1+1):   #读取A表的单号序列,存入列表
     value_number = ws1.cell(n,1).value
     if value_number == None:
         continue
     else:
-        value_number = str(value_number)
+        #value_number = str(value_number)
         list_number.append(value_number)
 wb1.close()        
 #wb1.save(dir_A+file_name_A)
@@ -76,7 +76,7 @@ for m in range(2, Allrow2+1):   #读取B表的单号序列
     if value_number == None:
         continue
     else:
-        value_number = str(value_number)
+        #value_number = str(value_number)
         list_number.append(value_number)
 
 wb2.close() 
@@ -87,7 +87,7 @@ for o in range(2, Allrow3+1):    #读取C表的单号序列
     if value_number == None:
         continue
     else:
-        value_number = str(value_number)
+        #value_number = str(value_number)
         list_number.append(value_number)
 wb3.close() 
 #使用pandas剔除杂项
@@ -99,10 +99,10 @@ df = pd.read_excel(dir_D+file_name_D)
 #删除空行
 ###df = df.dropna(axis=0, how='all', thresh=None, subset=None, inplace=False)
 # print(df['运单编号'].dtype) #int64
-'''
-for str1 in list_number:
-    df = df.drop(df[ int(str1) == df['运单编号'] ].index)
-'''
+
+for num1 in list_number:
+    df = df.drop(df[ num1 == df['运单编号'] ].index)
+
 writer = pd.ExcelWriter(dir_D+file_name_D)
 #df为需要保存的DataFrame
 df.to_excel(writer,index = False ,encoding='utf-8',sheet_name='Sheet1')
