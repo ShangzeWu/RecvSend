@@ -101,8 +101,9 @@ df = pd.read_excel(dir_D+file_name_D)
 # print(df['运单编号'].dtype) #int64
 
 for num1 in list_number:
+    num1 = int(num1)
     print(type(num1))
-    print(num1)
+    print(df['运单编号'].dtype)
     df = df.drop(df[ df['运单编号'] == num1 ].index)
 
 #df = df.drop(df[ df['运单编号'] == 777069457504657].index)
