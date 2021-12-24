@@ -24,17 +24,11 @@ def find_new_file(dir):
 
 path =  "/var/www/html/RecvSend/"
 #print(path)
-dir_A = path+'/uploadA/' #用来读取A文件 的 路径
-dir_B = path+'/uploadB/' #用来读取B文件 的 路径
-dir_C = path+'/uploadC/' #用来读取C文件 的 路径
-dir_D = path+'/uploadD/' #用来读取D文件 的 路径
+dir_E = path+'/uploadE/' #用来读取E文件 的 路径
 
-dir_save_D= "/var/www/html/RecvSend/resultD/"  #输出 D文件 的保存路径
+dir_save_E = "/var/www/html/RecvSend/resultE/"  #输出 E文件 的保存路径
 
-file_name_A = find_new_file(dir_A)
-file_name_B = find_new_file(dir_B)
-file_name_C = find_new_file(dir_C)
-file_name_D = find_new_file(dir_D)
+file_name_E = find_new_file(dir_E)
 
 #业务逻辑
 #加载ABC表的第一列
