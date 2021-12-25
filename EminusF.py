@@ -36,16 +36,14 @@ df = pd.read_excel(dir_E+file_name_E)
 df1 = pd.DataFrame(columns=['运单号','包号','扫描网点','扫描类型','扫描时间','上传时间','上一站','下一站','收/派件员','扫描员','寄件网点','车辆任务号','重量','物品类别','快件类型','设备类型','问题件类型','问题件说明','合作品牌','寄件客户','长','宽','高']) 
 #print(df[(df['扫描类型']=='网点收件') | (df['扫描类型']=='业务员收件')])
 df1 = df1.append(df[(df['扫描类型']=='网点收件') | (df['扫描类型']=='业务员收件')])
-print(df1)
+#print(df1)
 #print((df['寄件网点']!='江苏省市场部五十七部') & (df['寄件网点']!='江苏盐城公司'))
 #df = df.drop(df[(df['寄件网点']!='江苏省市场部五十七部') & (df['寄件网点']!='江苏盐城公司') & (df['寄件网点']!='江苏盐城宝龙公司') & (df['寄件网点']!='江苏盐城龙冈公司') & (df['寄件网点']!='江苏盐城亭湖公司') & (df['寄件网点']!='江苏盐城万达公司') & (df['寄件网点']!='江苏盐城吾悦公司') & (df['寄件网点']!='江苏盐城盐都公司') & (df['寄件网点']!='江苏盐城盐南高新公司') & (df['寄件网点']!='江苏盐城招商公司')  ].index)
 #删除空行
 #df = df.dropna(axis=0, how='all', thresh=None, subset=None, inplace=False)
 # print(df['运单编号'].dtype) #int64
 
-'''
-writer = pd.ExcelWriter(path+'/resultE/'+file_name_F)
+writer = pd.ExcelWriter(path+'/resultE/Changed'+file_name_F)
 #df为需要保存的DataFrame
 df1.to_excel(writer,index = False ,encoding='utf-8',sheet_name='Sheet1')
 writer.save()
-'''
