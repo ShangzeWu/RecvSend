@@ -43,7 +43,7 @@ df1 = df1.append(df[(df['扫描类型']=='网点收件') | (df['扫描类型']==
 #df = df.dropna(axis=0, how='all', thresh=None, subset=None, inplace=False)
 # print(df['运单编号'].dtype) #int64
 
-writer = pd.ExcelWriter(path+'/resultE/Changed'+file_name_F)
+writer = pd.ExcelWriter(path+'/resultE/Changed'+file_name_E)
 #df为需要保存的DataFrame
 df1.to_excel(writer,index = False ,encoding='utf-8',sheet_name='Sheet1')
 writer.save()
