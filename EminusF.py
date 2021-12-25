@@ -40,10 +40,10 @@ df1 = df1.append(df[((df['扫描类型']=='网点收件') | (df['扫描类型']=
 df1 = df1.drop_duplicates(subset='运单号', keep='first', inplace=False)
 df = df.drop_duplicates(subset='运单号', keep='first', inplace=False)
 
-df = df.drop()
+df = df.drop(df['运单号']==df1['运单号'])
 #df1 = df1.reset_index(drop=True)
 
 writer = pd.ExcelWriter(path+'/resultE/Changed'+file_name_E)
 #df为需要保存的DataFrame
-df1.to_excel(writer,index = False ,encoding='utf-8',sheet_name='Sheet1')
+df.to_excel(writer,index = False ,encoding='utf-8',sheet_name='Sheet1')
 writer.save()
