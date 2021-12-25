@@ -38,12 +38,16 @@ df1 = pd.DataFrame(columns=['运单号','包号','扫描网点','扫描类型','
 df1 = df1.append(df[((df['扫描类型']=='网点收件') | (df['扫描类型']=='业务员收件')) &((df['扫描网点']=='江苏省市场部五十七部')|(df['扫描网点']=='江苏盐城公司')|(df['扫描网点']=='江苏盐城宝龙公司')|(df['扫描网点']=='江苏盐城亭湖公司')|(df['扫描网点']=='江苏盐城万达公司')|(df['扫描网点']=='江苏盐城吾悦公司')|(df['扫描网点']=='江苏盐城龙冈公司')|(df['扫描网点']=='江苏盐城盐都公司')|(df['扫描网点']=='江苏盐城盐南高新公司')|(df['扫描网点']=='江苏盐城招商公司'))])
 #print(df1)
 df1 = df1.drop_duplicates(subset='运单号', keep='first', inplace=False)
-df = df.drop_duplicates(subset='运单号', keep='first', inplace=False)
+#df = df.drop_duplicates(subset='运单号', keep='first', inplace=False)
 
-df = df.drop(df['运单号']==df1['运单号'])
+List = df1['运单号'].values.tolist()
+print(List)
+
+#df = df.drop(df['运单号']==df1['运单号'])
 #df1 = df1.reset_index(drop=True)
-
+'''
 writer = pd.ExcelWriter(path+'/resultE/Changed'+file_name_E)
 #df为需要保存的DataFrame
 df.to_excel(writer,index = False ,encoding='utf-8',sheet_name='Sheet1')
 writer.save()
+'''
