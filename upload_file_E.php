@@ -34,7 +34,7 @@ if (($extension == "xlsx")
         }
     }
 
-#header("Location: http://47.114.178.105/RecvSend/actionE.php");
+header("Location: http://47.114.178.105/RecvSend/actionE.php");
 }
 else
 {
