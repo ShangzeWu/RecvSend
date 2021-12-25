@@ -39,6 +39,8 @@ df1 = df1.append(df[((df['扫描类型']=='网点收件') | (df['扫描类型']=
 #print(df1)
 df1 = df1.drop_duplicates(subset='运单号', keep='first', inplace=False)
 df = df.drop_duplicates(subset='运单号', keep='first', inplace=False)
+
+df = df.drop()
 #df1 = df1.reset_index(drop=True)
 
 writer = pd.ExcelWriter(path+'/resultE/Changed'+file_name_E)
