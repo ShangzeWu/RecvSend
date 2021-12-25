@@ -91,6 +91,7 @@ df = df.drop(df[(df['寄件网点']!='江苏省市场部五十七部') & (df['�
 #删除空行
 df = df.dropna(axis=0, how='all', thresh=None, subset=None, inplace=False)
 # print(df['运单编号'].dtype) #int64
+df = df.drop_duplicates(subset='运单编号', keep='first', inplace=False)
 
 for num1 in list_number:
     num1 = int(num1)
