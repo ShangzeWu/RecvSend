@@ -33,21 +33,23 @@ file_name_E = find_new_file(dir_E)
 #业务逻辑
 
 df = pd.read_excel(dir_E+file_name_E)
+df1 = pd.DataFrame(columns=['运单号','包号','扫描网点','扫描类型','扫描时间','上传时间','上一站','下一站','收/派件员','扫描员','寄件网点','车辆任务号','重量','物品类别','快件类型','设备类型','问题件类型','问题件说明','合作品牌','寄件客户','长','宽','高']) 
 #print(df['寄件网点'])
+df1.append(df[(df['扫描类型']=='网点收件')&(df['扫描类型']=='业务员收件')].index)
 #print((df['寄件网点']!='江苏省市场部五十七部') & (df['寄件网点']!='江苏盐城公司'))
-df = df.drop(df[(df['寄件网点']!='江苏省市场部五十七部') & (df['寄件网点']!='江苏盐城公司') & (df['寄件网点']!='江苏盐城宝龙公司') & (df['寄件网点']!='江苏盐城龙冈公司') & (df['寄件网点']!='江苏盐城亭湖公司') & (df['寄件网点']!='江苏盐城万达公司') & (df['寄件网点']!='江苏盐城吾悦公司') & (df['寄件网点']!='江苏盐城盐都公司') & (df['寄件网点']!='江苏盐城盐南高新公司') & (df['寄件网点']!='江苏盐城招商公司')  ].index)
+#df = df.drop(df[(df['寄件网点']!='江苏省市场部五十七部') & (df['寄件网点']!='江苏盐城公司') & (df['寄件网点']!='江苏盐城宝龙公司') & (df['寄件网点']!='江苏盐城龙冈公司') & (df['寄件网点']!='江苏盐城亭湖公司') & (df['寄件网点']!='江苏盐城万达公司') & (df['寄件网点']!='江苏盐城吾悦公司') & (df['寄件网点']!='江苏盐城盐都公司') & (df['寄件网点']!='江苏盐城盐南高新公司') & (df['寄件网点']!='江苏盐城招商公司')  ].index)
 #删除空行
-df = df.dropna(axis=0, how='all', thresh=None, subset=None, inplace=False)
+#df = df.dropna(axis=0, how='all', thresh=None, subset=None, inplace=False)
 # print(df['运单编号'].dtype) #int64
-
+'''
 for num1 in list_number:
     num1 = int(num1)
     #print(type(num1))
     #print(df['运单编号'].dtype)
     df = df.drop(df[ df['运单编号'] == num1 ].index)
-
+'''
 #df = df.drop(df[ df['运单编号'] == 777069457504657].index)
-writer = pd.ExcelWriter(path+'/resultD/'+file_name_D)
+writer = pd.ExcelWriter(path+'/resultE/'+file_name_F)
 #df为需要保存的DataFrame
 df.to_excel(writer,index = False ,encoding='utf-8',sheet_name='Sheet1')
 writer.save()
