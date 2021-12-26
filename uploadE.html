@@ -1,12 +1,21 @@
 <html>
-
+   
+<head>
+<meta charset="utf-8">
+<script>
+function myFunction(){
+	alert("你好，我是一个警告框！");
+}
+</script>
+</head>
+   
 <body>
 
 上传E表，进行处理
 
 <form name = form1 action="upload_file_E.php" method="post" enctype="multipart/form-data">
 <input type="file" name="file" id="file" />
-<input type="submit" name="submit1" value="提交E表格" οnclick="alert('已经提交了，请稍等')"/>
+<input type="submit" name="submit1" value="提交E表格" οnclick="myFunction()"/>
 </form>
    
 
