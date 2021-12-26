@@ -1,13 +1,4 @@
 <html>
-   
-<head>
-<script type="text/javascript">
-function disableButton()
-  {
-      document.getElementById("submit1").disabled=true
-  }
-</script>
-</head>
 
 <body>
 
@@ -15,7 +6,7 @@ function disableButton()
 
 <form name = form1 action="upload_file_E.php" method="post" enctype="multipart/form-data">
 <input type="file" name="file" id="file" />
-<input type="submit" name="submit1" value="提交E表格" onclick="disableButton()"/>
+<input type="submit" name="submit1" value="提交E表格" οnclick="javascript:this.disabled=true;"/>
 </form>
    
 
