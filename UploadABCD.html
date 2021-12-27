@@ -4,9 +4,9 @@
 <body>
 
 
-注意,文件名称不可包含中文以及特殊符号
+注意,仅转运中心表格支持.xls格式上传，其他需要上传.xlsx <br>
 
-必须提交完ABCD表再进行操作<br>
+表格需要按照顺序上传，上传成功会直接返回当前界面<br>
 在这里上传五十七部表格：
 <form action="upload_file_A.php" method="post" enctype="multipart/form-data">
 <input type="file" name="file" id="file" />
@@ -22,10 +22,10 @@
 <input type="file" name="file" id="file" />
 <input type="submit" name="提交C表格" value="提交盐城公司" />
 </form>
-   
+在这里上传转运中心表格：   
 <form action="upload_file_D.php" method="post" enctype="multipart/form-data">
 <input type="file" name="file" id="file" />
-<input type="submit" name="提交D表格" value="提交D表格" />
+<input type="submit" name="提交D表格" value="提交转运中心" />
 </form>
 
 </body>
