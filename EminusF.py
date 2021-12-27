@@ -47,7 +47,7 @@ List = df1['运单号'].values.tolist()
 for X in List:
     df = df.drop(df[df['运单号']==X].index)
 
-writer = pd.ExcelWriter(path+'/resultE/Changed'+file_name_E)
+writer = pd.ExcelWriter(path+'/resultE/Changed'+cur_time+'.xlsx')
 #df为需要保存的DataFrame
 df.to_excel(writer,index = False ,encoding='utf-8',sheet_name='Sheet1')
 writer.save()
