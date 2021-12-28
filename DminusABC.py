@@ -53,6 +53,7 @@ list_number = [0]
 #print(type(ws1.cell(3,1).value))  #int
 #print(type(ws2.cell(3,1).value))  #int
 #print(type(ws3.cell(3,1).value))  #int
+'''
 for n in range(2, Allrow1+1):   #读取A表的单号序列,存入列表
     value_number = ws1.cell(n,1).value
     if value_number == None:
@@ -81,15 +82,25 @@ for o in range(2, Allrow3+1):    #读取C表的单号序列
     else:
         #value_number = str(value_number)
         list_number.append(value_number)
-wb3.close() 
+wb3.close() '''
 #使用pandas剔除杂项
 dfA = pd.read_excel(dir_A+file_name_A)
 dfB = pd.read_excel(dir_B+file_name_B)
 dfC = pd.read_excel(dir_C+file_name_C)
 
-df = pd.read_excel(dir_D+file_name_D)
+ListA = dfA['运单号'].values.tolist()
+ListB = dfB['运单号'].values.tolist()
+ListC = dfC['运单号'].values.tolist()
+
+list_number=list_number.extend(ListA)
+list_number=list_number.extend(ListB)
+list_number=list_number.extend(ListC)
+
+print(list_number)
 #print(df['寄件网点'])
 #print((df['寄件网点']!='江苏省市场部五十七部') & (df['寄件网点']!='江苏盐城公司'))
+'''
+df = pd.read_excel(dir_D+file_name_D)
 #删除其他网点
 df = df.drop(df[(df['寄件网点']!='江苏省市场部五十七部') & (df['寄件网点']!='江苏盐城公司') & (df['寄件网点']!='江苏盐城宝龙公司') & (df['寄件网点']!='江苏盐城龙冈公司') & (df['寄件网点']!='江苏盐城亭湖公司') & (df['寄件网点']!='江苏盐城万达公司') & (df['寄件网点']!='江苏盐城吾悦公司') & (df['寄件网点']!='江苏盐城盐都公司') & (df['寄件网点']!='江苏盐城盐南高新公司') & (df['寄件网点']!='江苏盐城招商公司')  ].index)
 #删除空行
@@ -108,5 +119,5 @@ writer = pd.ExcelWriter(path+'/resultD/'+cur_time+'.xlsx')
 #df为需要保存的DataFrame
 df.to_excel(writer,index = False ,encoding='utf-8',sheet_name='Sheet1')
 writer.save()
-
+'''
 #wb2.save(dir_namelist+file_name_list)
