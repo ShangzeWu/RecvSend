@@ -92,9 +92,9 @@ ListA = dfA['运单号'].values.tolist()
 ListB = dfB['运单号'].values.tolist()
 ListC = dfC['运单号'].values.tolist()
 
-list_number=list_number.extend(ListA)
-list_number=list_number.extend(ListB)
-list_number=list_number.extend(ListC)
+list_number.extend(ListA)
+list_number.extend(ListB)
+list_number.extend(ListC)
 
 print(list_number)
 #print(df['寄件网点'])
