@@ -83,6 +83,10 @@ for o in range(2, Allrow3+1):    #读取C表的单号序列
         list_number.append(value_number)
 wb3.close() 
 #使用pandas剔除杂项
+dfA = pd.read_excel(dir_A+file_name_A)
+dfB = pd.read_excel(dir_B+file_name_B)
+dfC = pd.read_excel(dir_C+file_name_C)
+
 df = pd.read_excel(dir_D+file_name_D)
 #print(df['寄件网点'])
 #print((df['寄件网点']!='江苏省市场部五十七部') & (df['寄件网点']!='江苏盐城公司'))
